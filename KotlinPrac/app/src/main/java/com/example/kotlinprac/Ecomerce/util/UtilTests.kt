@@ -1,0 +1,9 @@
+package id.barakkastudio.core.util
+
+
+/** Created by github.com/im-o on 5/3/2023. */
+
+object UtilTests {
+   // val dummyProduct = Product("Product", "Product 1")
+   // val dummyProductResponse = ProductResponse(0, mutableListOf(dummyProduct))
+}
