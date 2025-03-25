@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -75,4 +76,38 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    val composeBom = platform("androidx.compose:compose-bom:2024.06.00")
+    // Unit/Integration tests dependencies
+    testImplementation(composeBom)
+    /*testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.property)
+    testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.robolectric)*/
+
+    // Specify Compose library dependencies without a version definition
+    implementation("androidx.compose.foundation:foundation")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-core")
+    // Integration with activities
+    implementation("androidx.activity:activity-compose:1.9.0")
+    // Integration with ViewModels
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    // Integration with LiveData
+    implementation("androidx.compose.runtime:runtime-livedata")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("io.insert-koin:koin-core:3.1.2")
+    implementation ("io.insert-koin:koin-android:3.1.2")
+    implementation("org.jetbrains.kotlin:kotlin-parcelize-runtime:1.7.10")
+    implementation ("io.insert-koin:koin-core:3.x.x")
+    implementation ("io.insert-koin:koin-android:3.5.6")
+    // ..
+    // ..
+
+    // Android Studio Preview support
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
 }

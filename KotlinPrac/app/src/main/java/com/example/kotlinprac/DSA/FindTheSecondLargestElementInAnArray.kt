@@ -1,4 +1,4 @@
-package com.example.myapplication.DSA
+package com.example.kotlinprac.DSA
 
 fun main(){
     val arrayData= intArrayOf(1111,23,45,64,76,37,101,99,56,46)

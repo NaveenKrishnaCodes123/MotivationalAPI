@@ -1,4 +1,4 @@
-package com.example.myapplication.DSA
+package com.example.kotlinprac.DSA
 
 fun main(){
 

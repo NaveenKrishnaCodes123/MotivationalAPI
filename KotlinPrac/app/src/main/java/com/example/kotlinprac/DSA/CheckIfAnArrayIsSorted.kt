@@ -1,4 +1,4 @@
-package com.example.myapplication.DSA
+package com.example.kotlinprac.DSA
 
 fun main(){
     val array= intArrayOf(9,4,5,6,7,8,2,3,4,5,6,7,8,9)

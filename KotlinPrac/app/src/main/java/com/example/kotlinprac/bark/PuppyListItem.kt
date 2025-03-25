@@ -49,7 +49,16 @@ fun PuppyListItem(puppy: Puppy, navigateToProfile: (Puppy) -> Unit,) {
         shape = RoundedCornerShape(corner = CornerSize(16.dp)),
     ) {
         Row(Modifier.clickable { navigateToProfile(puppy) }) {
-            PuppyImage(puppy)
+            //PuppyImage(puppy)
+            Image(
+                painter = painterResource(id = puppy.puppyImageId),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .size(84.dp)
+                    .clip(RoundedCornerShape(corner = CornerSize(16.dp)))
+            )
             Column(
                 modifier = Modifier
                     .padding(8.dp)
