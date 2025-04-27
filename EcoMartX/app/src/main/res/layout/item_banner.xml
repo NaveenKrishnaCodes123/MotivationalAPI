@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="230dp"
+    android:layout_height="120dp"
+    android:id="@+id/cardview"
+    android:layout_margin="4dp"
+    card_view:cardElevation="4dp"
+    android:background="@color/primary"
+    card_view:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingStart="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_gravity="start"
+                    android:id="@+id/text"
+                    android:text="Claim your discount 30% daily now!"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Order now"
+                    android:textSize="9dp"
+                    android:padding="10dp"
+                    android:paddingStart="25dp"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="10dp"
+                    android:paddingEnd="25dp"
+                    android:background="@drawable/buttonblack_border"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bannerImage"/>
+            </LinearLayout>
+        </LinearLayout>
+</androidx.cardview.widget.CardView>

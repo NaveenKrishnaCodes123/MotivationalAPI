@@ -9,16 +9,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="340dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@color/white"
+            android:background="@drawable/loginicon"
             android:gravity="center"
-            android:text="@string/ecomartx"
             android:textColor="@color/primary"
             android:textSize="34sp"
             android:textStyle="bold" />
@@ -30,9 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="2dp"
         android:gravity="center"
         android:text="@string/welcome_back_your_gateway_to_fresh_finds_and_smart_savings"
         android:textColor="@color/black"
@@ -70,25 +68,17 @@
             android:background="@color/black" />
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        app:boxStrokeColor="#E0E0E0"
-        app:hintEnabled="false">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_border"
             android:hint="@string/_91_enter_phone_number"
             android:inputType="phone"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
             android:padding="10dp"
             android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
@@ -99,6 +89,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_button"
         android:text="@string/continu"
+        android:id="@+id/continuebtn"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
