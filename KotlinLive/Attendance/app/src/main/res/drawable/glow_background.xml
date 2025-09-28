@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Glow outer circle -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#33A9CFFF"/> <!-- Light transparent blue -->
+            <size android:width="200dp" android:height="200dp"/>
+        </shape>
+    </item>
+
+    <!-- Glow pulse circle -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="100dp"
+                android:centerColor="#80A9CFFF"
+                android:endColor="#00A9CFFF"/>
+            <size android:width="200dp" android:height="200dp"/>
+        </shape>
+    </item>
+</layer-list>

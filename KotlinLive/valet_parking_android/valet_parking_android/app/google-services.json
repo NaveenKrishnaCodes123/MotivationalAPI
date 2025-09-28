@@ -1,0 +1,162 @@
+{
+  "project_info": {
+    "project_number": "816784613103",
+    "project_id": "mobileapps-b703e",
+    "storage_bucket": "mobileapps-b703e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:b6a311b3ac169594f0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.clidiary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:5ea7063b8a596b8ff0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.dservicevp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:81072b14cd910f1af0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.falgo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:158402e8f9cf3ae0f0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.fd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:08e50aa9c7988ebdf0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.pactracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:1ef99a7682480486f0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.tghud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:5f02cedced3bc111f0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.tidiary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816784613103:android:33c604b92f825b41f0851a",
+        "android_client_info": {
+          "package_name": "com.mindcoin.tmrcdiary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoCWg4DzzSGDuSj4TlxZHBeFsmujxCAUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

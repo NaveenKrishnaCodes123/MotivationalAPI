@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_alerts"
+        android:enabled="true"
+        android:icon="@drawable/outline_home_24"
+        android:background="@drawable/nav_item_background_line"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_history"
+        android:enabled="true"
+        android:icon="@drawable/ic_calendar"
+        android:background="@drawable/nav_item_background_line"
+        android:title="Attendance" />
+    <item
+        android:id="@+id/nav_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_checklist"
+        android:background="@drawable/nav_item_background_line"
+        android:title="Leave" />
+</menu>
+
+
+
