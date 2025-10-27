@@ -4,8 +4,8 @@ fun main(){
     val input = "hello world"
     val remove = "lo"
 
-    val result = input.filter {
-        it !in remove
-    }
-    println(result)
+   val result= input.filter {
+       it !in remove
+   }
+    print(result)
 }

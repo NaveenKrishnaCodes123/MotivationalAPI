@@ -11,5 +11,6 @@ enum class Color(val code: String) {
     GREEN("#00FF00"),
     BLUE("#0000FF")
 }
-
-//println(Color.RED.code) // #FF0000
+fun main() {
+    println(Color.RED.code) // #FF0000
+}

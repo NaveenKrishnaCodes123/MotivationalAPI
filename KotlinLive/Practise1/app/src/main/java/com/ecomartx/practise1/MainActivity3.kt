@@ -7,31 +7,45 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.helper.widget.Flow
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlinx.coroutines.delay
+
 class MainActivity3 : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ThirdScreen(instanceId)
+           // ThirdScreen(instanceId)
+            TestData()
         }
     }
 }
 
-@Composable
+/*@Composable
 fun ThirdScreen(id: String) {
     val context = LocalContext.current
     Column(
@@ -54,5 +68,50 @@ fun ThirdScreen(id: String) {
             context.startActivity(Intent(context, MainActivity2::class.java))
         }) { Text("Go to SecondActivity") }
     }
-}
+}*/
 
+@Preview
+@Composable
+fun TestData(){
+
+    var items= remember { mutableStateListOf<String>() }
+
+    LaunchedEffect(Unit) {
+        for(i in 1..10){
+            delay(1000)
+            items.add("Items In List : $i")
+        }
+    }
+
+    LazyColumn (modifier = Modifier.fillMaxSize(), contentPadding = PaddingValues(24.dp)){
+
+        item(){
+
+            Text(text = "SHOW DATA",
+                fontSize = 24.sp,
+                modifier = Modifier.padding(8.dp),
+                fontStyle = FontStyle.Italic
+            )
+
+            Button(onClick = {
+                items.add("Item in List: ${items.size + 1}")
+            }) {
+                Text("Add Item")
+            }
+
+
+        }
+
+        items(items.size){ it ->
+
+            Text(text = "${items[it]}",
+                fontSize = 14.sp,
+                modifier = Modifier.padding(8.dp),
+                fontStyle = FontStyle.Italic
+            )
+
+
+        }
+    }
+
+}

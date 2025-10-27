@@ -3,115 +3,64 @@ package com.ecomartx.dependencyinjection
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bookmark
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material3.Icon
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.ecomartx.dependencyinjection.ui.theme.MovieAppTheme
-import com.ecomartx.dependencyinjection.presentation.bookmarked_movies.BookmarkedMoviesScreen
-import com.ecomartx.dependencyinjection.presentation.movie_detail.MovieDetailScreen
-import com.ecomartx.dependencyinjection.presentation.movie_list.MovieListScreen
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.ecomartx.dependencyinjection.Model.MotivationalPhrase
+import com.ecomartx.dependencyinjection.ViewModel.MotivationViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.reflect.Modifier
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel: MotivationViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MovieAppTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MovieAppNavigation()
-                }
-            }
+            MotivationScreen(viewModel)
         }
     }
 }
 
-sealed class Screen(val route: String, val label: String, val icon: ImageVector) {
-    object MovieList : Screen("movie_list_screen", "Movies", Icons.Filled.Home)
-    object MovieDetail : Screen("movie_detail_screen/{movieId}", "Detail", Icons.Filled.Home) // Detail screen doesn't need a bottom nav icon
-    object BookmarkedMovies : Screen("bookmarked_movies_screen", "Bookmarks", Icons.Filled.Bookmark)
+@Composable
+fun MotivationScreen(viewModel: MotivationViewModel) {
+    val quotes by viewModel.quotes.collectAsStateWithLifecycle()
+
+    LazyColumn {
+        items(quotes) { quote ->
+            QuoteCard(quote)
+        }
+    }
 }
 
 @Composable
-fun MovieAppNavigation() {
-    val navController = rememberNavController()
-    val navItems = listOf(Screen.MovieList, Screen.BookmarkedMovies) // Only show MovieList and BookmarkedMovies in bottom nav
-
-    Scaffold(
-        bottomBar = {
-            NavigationBar {
-                val navBackStackEntry by navController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
-                navItems.forEach { screen ->
-                    NavigationBarItem(
-                        icon = { Icon(screen.icon, contentDescription = null) },
-                        label = { Text(screen.label) },
-                        selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
-                        onClick = {
-                            navController.navigate(screen.route) {
-                                // Pop up to the start destination of the graph to
-                                // avoid building up a large stack of destinations
-                                // on the back stack as users select items
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
-                                }
-                                // Avoid multiple copies of the same destination when
-                                // reselecting the same item
-                                launchSingleTop = true
-                                // Restore state when reselecting previously selected item
-                                restoreState = true
-                            }
-                        }
-                    )
-                }
-            }
-        }
-    ) { paddingValues ->
-        NavHost(
-            navController = navController,
-            startDestination = Screen.MovieList.route,
-            modifier = Modifier.padding(paddingValues)
-        ) {
-            composable(Screen.MovieList.route) {
-                MovieListScreen(navController = navController)
-            }
-            composable(
-                Screen.MovieDetail.route,
-                arguments = listOf(navArgument("movieId") { type = NavType.StringType })
-            ) { backStackEntry ->
-                MovieDetailScreen(
-                    navController = navController,
-                    movieId = backStackEntry.arguments?.getString("movieId")
-                )
-            }
-            composable(Screen.BookmarkedMovies.route) {
-                BookmarkedMoviesScreen(navController = navController)
-            }
+fun QuoteCard(quote: MotivationalPhrase) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
+        Column(Modifier.padding(16.dp)) {
+            Text(
+                text = quote.phrase,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = "- ${quote.author}",
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }
