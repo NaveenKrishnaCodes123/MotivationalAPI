@@ -5,47 +5,54 @@ import android.widget.TextView
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.delay
 
 class MainActivity4 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setContent{
+            remember { mutableStateOf("") }
+        }
        // setContentView(R.layout.activity_main2)
 
         val name =findViewById<TextView>(R.id.name)
         val designation =findViewById<TextView>(R.id.designation)
-        val composeView = findViewById<ComposeView>(R.id.compose_view)
+       // val composeView = findViewById<ComposeView>(R.id.compose_view)
 
 
-            composeView.setContent {
+           // composeView.setContent {
 
-                 MyComposeContent()
-             }
+              //   MyComposeContent()
+            // }
+
 
     }
 }
 
-@Preview
+
 @Composable
 fun MyComposeContent(){
 
@@ -84,4 +91,23 @@ fun MyComposeContent(){
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun remember(function: () -> MutableState<String>) {
+
+    var item by remember { mutableStateOf(0) }
+
+    Column (modifier = Modifier.fillMaxSize()){
+        Text(text = item.toString())
+
+        Button(onClick = {
+            item++
+
+        }) {
+            Text(text = "Increment",)
+        }
+    }
+
 }

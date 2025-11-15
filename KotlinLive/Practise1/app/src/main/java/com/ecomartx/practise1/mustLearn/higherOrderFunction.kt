@@ -23,3 +23,6 @@ fun main(){
 
     val result= calculate(6,7,::add)
 }
+
+
+

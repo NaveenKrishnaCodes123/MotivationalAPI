@@ -1,32 +1,20 @@
 package com.ecomartx.practise1
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
-class ActivityLifeCycle : AppCompatActivity() {
+class ActivityLifeCycle2 : AppCompatActivity() {
 
-    private val TAG = "ActivityLifecycle 1111111  "
+    private val TAG = "ActivityLifecycle 222222  "
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            FirstScreen()
-        }
+        setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate called")
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show()
     }
@@ -65,24 +53,5 @@ class ActivityLifeCycle : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy called")
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
-    }
-}
-
-
-@Preview
-@Composable
-fun FirstScreen() {
-    val context = LocalContext.current
-    Column (modifier = Modifier.fillMaxWidth().fillMaxHeight(),
-        verticalArrangement = Arrangement.Center) {
-        Button(
-            onClick = {
-                // Context required to start activity
-                val intent = Intent(context, ActivityLifeCycle2::class.java)
-                context.startActivity(intent)
-            }
-        ) {
-            Text("Go to Second Activity")
-        }
     }
 }
