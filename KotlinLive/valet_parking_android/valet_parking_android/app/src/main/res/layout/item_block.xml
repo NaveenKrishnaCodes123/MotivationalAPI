@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Background Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="@dimen/_12dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/linearBlock"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/blockName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Tick Overlay -->
+    <ImageView
+        android:id="@+id/tickIcon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="6dp"
+        android:src="@drawable/ic_tick"
+        android:background="@drawable/ic_tick"
+        android:visibility="gone"
+        android:padding="6dp"
+        android:elevation="4dp" />
+
+</FrameLayout>
